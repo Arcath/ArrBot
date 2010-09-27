@@ -11,7 +11,14 @@ class IRC
 	end
 
 	def recv
-		@con.recv(512)
+		m = @con.recv(512)
+		if m =~ /^PING :/ then
+			server = m.scan(/^PING :(.*)/).join
+			send("PONG #{server}")
+			return recv
+		else
+			return m
+		end
 	end
 
 	private
