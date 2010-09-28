@@ -27,7 +27,7 @@ class Logger
 				@file=File.new(file_name,"a+")
 				store s
 			end
-			@file.write("#{s}\n")
+			@file.write("#{Time.now.strftime("%H:%M:%S")} - #{s}\n")
 		else
 			@file=File.new(file_name,"a+")
 			store s
