@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'lib/logger.rb'
+log=Logger.new("log")
+log.log "Loading Requirements"
+
+require 'lib/irc.rb'
+
+log.log "Creating IRC Class"
+irc=IRC.new
